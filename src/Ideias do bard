@@ -1,0 +1,65 @@
+
+Tema: Sistema de controle de estoque de uma loja de roupas
+
+Requisitos:
+
+Pelo menos 3 classes abstratas:
+Classe abstrata Produto: representa um produto genérico, com atributos como nome, descrição, preço e quantidade em estoque.
+Classe abstrata Peça de vestuário: herda de Produto e adiciona atributos como tamanho, cor e gênero.
+Classe abstrata Calçado: herda de Peça de vestuário e adiciona atributos como tamanho do pé e material.
+Pelo menos 3 interfaces:
+Interface Perecível: representa um produto perecível, com um método validade() que retorna a data de validade.
+Interface Promoção: representa um produto em promoção, com um método desconto() que retorna o percentual de desconto.
+Interface Entrega: representa um produto que pode ser entregue, com um método calcularFrete() que retorna o valor do frete.
+Tratamento de exceção em pelo menos 5 classes:
+Classe NúmeroIncorretoException: lançada quando um número é inválido.
+Classe DataIncorretaException: lançada quando uma data é inválida.
+Classe EstoqueInsuficienteException: lançada quando a quantidade de um produto em estoque é insuficiente.
+Classe PromoçãoInexistenteException: lançada quando uma promoção não existe.
+Classe FreteIndisponívelException: lançada quando o frete para um produto não está disponível.
+Sinalização em pelo menos 3 métodos que podem disparar exceção:
+**Método verificarEstoque() da classe Produto.
+**Método calcularFrete() da classe Produto.
+**Método aplicarPromoção() da classe Produto.
+Implementar pelo menos 2 classes próprias de exceção:
+**Classe NúmeroIncorretoException.
+**Classe DataIncorretaException.
+Herança em pelo menos 5 classes:
+Produto herda de Object.
+Peça de vestuário herda de Produto.
+Calçado herda de Peça de vestuário.
+Perecível herda de Produto.
+Promoção herda de Produto.
+Polimorfismo de sobreposição em pelo menos 3 classes:
+**Método toString() da classe Produto.
+**Método verificarEstoque() da classe Produto.
+**Método calcularFrete() da classe Produto.
+Polimorfismo de sobrecarga em pelo menos 3 classes:
+**Método getNome() da classe Produto.
+**Método setQuantidade() da classe Produto.
+**Método aplicarPromoção() da classe Produto.
+Método toString() implementado em todos os objetos:
+Produto.
+Peça de vestuário.
+Calçado.
+Perecível.
+Promoção.
+Uso de encapsulamento:
+Todos os atributos das classes são privados e possuem métodos getters e setters.
+Uso de Collections (Uma List e uma Set ou Map) em pelo menos duas classes:
+Classe Loja: possui uma lista de produtos.
+Classe Pedido: possui um mapa de produtos.
+Utilização de Arquivos: leitura e escrita:
+O sistema pode gravar e ler dados de um arquivo.
+Modelagem do diagrama de classe do sistema no padrão UML:
+O diagrama de classe do sistema é fornecido no Apêndice A.
+BÔNUS: Interface gráfica da solução:
+O sistema possui uma interface gráfica desenvolvida com JavaFX.
+Execução do sistema:
+
+O sistema é executado a partir de um menu principal, que oferece as seguintes opções:
+
+Cadastrar produto: permite cadastrar um novo produto.
+Listar produtos: lista todos os produtos cadastrados.
+Consultar produto: consulta um produto específico.
+Editar produto: edita um produto existente.
