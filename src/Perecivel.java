@@ -1,5 +1,6 @@
-public interface Perecivel  {
-    //Colocar método validade()
+public interface Perecivel {
 
+    double prazoValidadeEmDias();
 
+    boolean estaValido();
 }
