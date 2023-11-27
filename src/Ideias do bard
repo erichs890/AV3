@@ -3,20 +3,20 @@ Tema: Sistema de controle de estoque de uma loja de roupas
 
 Requisitos:
 
-Pelo menos 3 classes abstratas:
-Classe abstrata Produto: representa um produto genérico, com atributos como nome, descrição, preço e quantidade em estoque.
-Classe abstrata Peça de vestuário: herda de Produto e adiciona atributos como tamanho, cor e gênero.
-Classe abstrata Calçado: herda de Peça de vestuário e adiciona atributos como tamanho do pé e material.
-Pelo menos 3 interfaces:
-Interface Perecível: representa um produto perecível, com um método validade() que retorna a data de validade.
-Interface Promoção: representa um produto em promoção, com um método desconto() que retorna o percentual de desconto.
-Interface Entrega: representa um produto que pode ser entregue, com um método calcularFrete() que retorna o valor do frete.
-Tratamento de exceção em pelo menos 5 classes:
-Classe NúmeroIncorretoException: lançada quando um número é inválido.
-Classe DataIncorretaException: lançada quando uma data é inválida.
-Classe EstoqueInsuficienteException: lançada quando a quantidade de um produto em estoque é insuficiente.
-Classe PromoçãoInexistenteException: lançada quando uma promoção não existe.
-Classe FreteIndisponívelException: lançada quando o frete para um produto não está disponível.
+#Pelo menos 3 classes abstratas:
+#Classe abstrata Produto: representa um produto genérico, com atributos como nome, descrição, preço e quantidade em estoque.
+#Classe abstrata Peça de vestuário: herda de Produto e adiciona atributos como tamanho, cor e gênero.
+#Classe abstrata Calçado: herda de Peça de vestuário e adiciona atributos como tamanho do pé e material.
+#Pelo menos 3 interfaces:
+#Interface Perecível: representa um produto perecível, com um método validade() que retorna a data de validade.
+#Interface Promoção: representa um produto em promoção, com um método desconto() que retorna o percentual de desconto.
+#Interface Entrega: representa um produto que pode ser entregue, com um método calcularFrete() que retorna o valor do frete.
+#Tratamento de exceção em pelo menos 5 classes:
+#Classe NúmeroIncorretoException: lançada quando um número é inválido.
+#Classe DataIncorretaException: lançada quando uma data é inválida.
+#Classe EstoqueInsuficienteException: lançada quando a quantidade de um produto em estoque é insuficiente.
+#Classe PromoçãoInexistenteException: lançada quando uma promoção não existe.
+#Classe FreteIndisponívelException: lançada quando o frete para um produto não está disponível.
 Sinalização em pelo menos 3 métodos que podem disparar exceção:
 **Método verificarEstoque() da classe Produto.
 **Método calcularFrete() da classe Produto.
