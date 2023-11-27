@@ -1,4 +1,4 @@
-public abstract class Calcado extends Produto {
+public abstract class Calcado extends PecaVestuario {
     int numero;
     boolean cadarco;
 }

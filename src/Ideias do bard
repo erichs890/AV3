@@ -24,12 +24,12 @@ Sinalização em pelo menos 3 métodos que podem disparar exceção:
 Implementar pelo menos 2 classes próprias de exceção:
 **Classe NúmeroIncorretoException.
 **Classe DataIncorretaException.
-Herança em pelo menos 5 classes:
-Produto herda de Object.
-Peça de vestuário herda de Produto.
-Calçado herda de Peça de vestuário.
-Perecível herda de Produto.
-Promoção herda de Produto.
+#Herança em pelo menos 5 classes:
+#Produto herda de Object.
+#Peça de vestuário herda de Produto.
+#Calçado herda de Peça de vestuário.
+#Chinelo herda de Calcado.
+#Blusa herda de PecaVestuario
 Polimorfismo de sobreposição em pelo menos 3 classes:
 **Método toString() da classe Produto.
 **Método verificarEstoque() da classe Produto.

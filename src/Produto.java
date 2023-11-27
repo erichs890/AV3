@@ -1,4 +1,4 @@
-public abstract class Produto {
+public abstract class Produto extends Object {
     float preco;
     String nome;
     String marca;

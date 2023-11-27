@@ -1,2 +1,5 @@
-public interface Perecivel {
+public interface Perecivel  {
+    //Colocar método validade()
+
+
 }
