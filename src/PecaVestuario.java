@@ -7,7 +7,33 @@ public abstract class PecaVestuario extends Produto implements Entrega, Perecive
           this.tamanho = tamanho;
           this.cor = cor;
      }
+
+     @Override
+     public boolean verificarEstoque() throws EstoqueInsuficienteException {
+          return false;
+     }
+
+     @Override
+     public double calcularFrete() {
+          return 0;
+     }
+
+     @Override
+     public void aplicarPromoção() throws PromocaoInexistenteException {
+
+     }
+
      public String toString(){
           return super.toString() + ", tamanho=" + tamanho + ", cor=" + cor + ", gênero=" + genero;
+     }
+
+     @Override
+     public double prazoValidadeEmDias() {
+          return 0;
+     }
+
+     @Override
+     public boolean estaValido() {
+          return false;
      }
 }
