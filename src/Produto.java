@@ -26,7 +26,7 @@ public abstract class Produto extends Object{
 
     public abstract double calcularFrete() throws FreteIndisponivelException;
 
-    public abstract void aplicarPromoção() throws PromocaoInexistenteException;
+    public abstract void aplicarPromocao() throws PromocaoInexistenteException;
 
     @Override
     public String toString() {

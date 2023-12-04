@@ -47,38 +47,73 @@ public class Main {
     }
 
     // Adiciona um produto à lista
+    // Adiciona um produto à lista
+    // Adiciona um produto à lista
     private static void adicionarProduto(ArrayList<Produto> produtos, Scanner scanner) {
         // Lê o tipo do produto
-        System.out.println("Digite o tipo do produto: \n 1 - Blusa \n 2- Calçado");
+        System.out.println("Digite o tipo do produto (ex: Camisa, Calça, etc.):");
         String tipo = scanner.nextLine();
 
-        // Lê a quantidade do produto
-        System.out.println("Digite a quantidade do produto:");
+        // Lê as demais informações do produto
+        System.out.println("Digite a quantidade:");
         int quantidade = scanner.nextInt();
 
-        // Cria um produto com o tipo e quantidade especificados
-        Produto produto = new Produto(tipo, quantidade) {
-            @Override
-            public boolean verificarEstoque() throws EstoqueInsuficienteException {
-                return false;
-            }
+        System.out.println("Digite o tamanho:");
+        String tamanho = scanner.nextLine();
 
-            @Override
-            public double calcularFrete() throws FreteIndisponivelException {
-                return 0;
-            }
+        System.out.println("Digite a cor:");
+        String cor = scanner.nextLine();
 
-            @Override
-            public void aplicarPromoção() throws PromocaoInexistenteException {
+        // Verifica se o tipo do produto é "calçado"
+        if (tipo.equalsIgnoreCase("calçado")) {
+            // Lê o número
+            System.out.println("Digite o número:");
+            int numero = scanner.nextInt();
 
-            }
-        };
+            // Verifica se o calçado tem cadarço
+            System.out.println("O calçado tem cadarço? (S/N)");
+            String resposta = scanner.next();
+            boolean temCadarco = resposta.equalsIgnoreCase("s");
 
-        // Adiciona o produto à lista
-        produtos.add(produto);
+            // Cria um produto calçado
+            Calcado produto = new Calcado(tipo, quantidade, tamanho, cor, numero, temCadarco) {
+                @Override
+                public boolean estaValido() {
+                    return false;
+                }
+            };
 
-        System.out.println("Produto adicionado com sucesso!");
+            // Adiciona o produto à lista
+            produtos.add(produto);
+
+            System.out.println("Produto adicionado com sucesso!");
+        } else {
+            // Cria um produto genérico
+            Produto produto = new Produto(tipo, quantidade, tamanho, cor) {
+                @Override
+                public boolean verificarEstoque() throws EstoqueInsuficienteException {
+                    return false;
+                }
+
+                @Override
+                public double calcularFrete() throws FreteIndisponivelException {
+                    return 0;
+                }
+
+                @Override
+                public void aplicarPromocao() throws PromocaoInexistenteException {
+
+                }
+            };
+
+            // Adiciona o produto à lista
+            produtos.add(produto);
+
+            System.out.println("Produto adicionado com sucesso!");
+        }
     }
+
+
 
     // Remove um produto da lista
     private static void removerProduto(ArrayList<Produto> produtos, Scanner scanner) {

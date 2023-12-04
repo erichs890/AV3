@@ -11,7 +11,7 @@ public class Chinelo extends Calcado{
     }
 
     @Override
-    public void aplicarPromoção() throws PromocaoInexistenteException {
+    public void aplicarPromocao() throws PromocaoInexistenteException {
 
     }
 

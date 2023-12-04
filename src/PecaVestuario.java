@@ -35,7 +35,7 @@ public abstract class PecaVestuario extends Produto implements Entrega, Perecive
      }
 
      @Override
-     public void aplicarPromoção() throws PromocaoInexistenteException {
+     public void aplicarPromocao() throws PromocaoInexistenteException {
 
      }
 
