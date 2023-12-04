@@ -1,6 +1,6 @@
 public class Blusa extends PecaVestuario{
-    public Blusa(float preco, String nome, String marca, String codigo, String material, char genero, String tamanho) {
-        super(preco, nome, marca, codigo, material, genero, tamanho);
+    public Blusa(String tipo, int quantiadeEstoque,String tamanho, String cor){
+        super(tipo,quantiadeEstoque,tamanho,cor);
     }
 
     @Override

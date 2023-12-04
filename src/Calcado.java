@@ -18,9 +18,11 @@ public abstract class Calcado extends PecaVestuario {
         this.cadarco = cadarco;
     }
 
-    public Calcado(float preco, String nome, String marca, String codigo, String material, char genero, String tamanho, int numero, boolean cadarco) {
-        super(preco, nome, marca, codigo, material, genero, tamanho);
+    public Calcado(String tipo, int quantidadeEstoque,String tamanho, String cor,int numero) {
+        super(tipo, quantidadeEstoque, tamanho, cor);
         this.numero = numero;
         this.cadarco = cadarco;
     }
+
+    public abstract boolean estaValido();
 }

@@ -18,9 +18,10 @@ public abstract class PecaVestuario extends Produto implements Entrega, Perecive
           this.cor = cor;
      }
 
-     public PecaVestuario(float preco, String nome, String marca, String codigo, String material, char genero, String tamanho) {
-          super(preco, nome, marca, codigo, material, genero);
+     public PecaVestuario(String tipo, int quantidadeEstoque, String tamanho, String cor) {
+          super(tipo, quantidadeEstoque);
           this.tamanho = tamanho;
+          this.cor = cor;
      }
 
      @Override
@@ -39,7 +40,7 @@ public abstract class PecaVestuario extends Produto implements Entrega, Perecive
      }
 
      public String toString(){
-          return super.toString() + ", tamanho=" + tamanho + ", cor=" + cor + ", gênero=" + getGenero();
+          return super.toString() + ", tamanho=" + tamanho + ", cor=" + cor;
      }
 
      @Override

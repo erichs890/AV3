@@ -1,13 +1,18 @@
 public class Chinelo extends Calcado{
 
-    public Chinelo(float preco, String nome, String marca, String codigo, String material, char genero, String tamanho,  int numero, boolean cadarco) {
-        super(preco, nome, marca, codigo, material, genero, tamanho, numero, cadarco);
-
+    public Chinelo(String tipo, int quantidadeEstoque, String tamanho, String cor,int numero, boolean cadarco) {
+        super(tipo, quantidadeEstoque,tamanho, cor,numero);
+        cadarco = false;
     }
 
     @Override
     public double calcularFrete() {
         return 0;
+    }
+
+    @Override
+    public void aplicarPromoção() throws PromocaoInexistenteException {
+
     }
 
     @Override
