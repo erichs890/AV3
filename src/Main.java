@@ -49,14 +49,16 @@ public class Main {
     // Adiciona um produto à lista
     // Adiciona um produto à lista
     // Adiciona um produto à lista
+    // Adiciona um produto à lista
     private static void adicionarProduto(ArrayList<Produto> produtos, Scanner scanner) {
         // Lê o tipo do produto
-        System.out.println("Digite o tipo do produto (ex: Camisa, Calça, etc.):");
+        System.out.println("Digite o tipo do produto (Blusa, Calçado):");
         String tipo = scanner.nextLine();
 
         // Lê as demais informações do produto
         System.out.println("Digite a quantidade:");
         int quantidade = scanner.nextInt();
+        scanner.nextLine(); // Limpar o buffer
 
         System.out.println("Digite o tamanho:");
         String tamanho = scanner.nextLine();
@@ -64,19 +66,22 @@ public class Main {
         System.out.println("Digite a cor:");
         String cor = scanner.nextLine();
 
-        // Verifica se o tipo do produto é "calçado"
-        if (tipo.equalsIgnoreCase("calçado")) {
+        // Verifica se o tipo do produto é "Calçado"
+        if (tipo.equals("Calçado")) {
             // Lê o número
             System.out.println("Digite o número:");
             int numero = scanner.nextInt();
 
+            // Limpar o buffer
+            scanner.nextLine();
+
             // Verifica se o calçado tem cadarço
             System.out.println("O calçado tem cadarço? (S/N)");
-            String resposta = scanner.next();
+            String resposta = scanner.nextLine();
             boolean temCadarco = resposta.equalsIgnoreCase("s");
 
             // Cria um produto calçado
-            Calcado produto = new Calcado(tipo, quantidade, tamanho, cor, numero, temCadarco) {
+            Calcado produto = new Calcado(tipo, quantidade, tamanho, cor, numero) {
                 @Override
                 public boolean estaValido() {
                     return false;
@@ -89,7 +94,7 @@ public class Main {
             System.out.println("Produto adicionado com sucesso!");
         } else {
             // Cria um produto genérico
-            Produto produto = new Produto(tipo, quantidade, tamanho, cor) {
+            Produto produto = new Produto(tipo, quantidade) {
                 @Override
                 public boolean verificarEstoque() throws EstoqueInsuficienteException {
                     return false;
@@ -113,9 +118,6 @@ public class Main {
         }
     }
 
-
-
-    // Remove um produto da lista
     private static void removerProduto(ArrayList<Produto> produtos, Scanner scanner) {
         // Lê o índice do produto a ser removido
         System.out.println("Digite o índice do produto a ser removido:");
