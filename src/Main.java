@@ -13,7 +13,7 @@ public class Main {
 
         while (true) {
             // Exibe o menu
-            System.out.println("Menu");
+            System.out.println("Bem-vindo à loja de roupa generica");
             System.out.println("1 - Adicionar produto");
             System.out.println("2 - Remover produto");
             System.out.println("3 - Ver estoque");
