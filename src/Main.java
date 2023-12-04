@@ -49,7 +49,7 @@ public class Main {
     // Adiciona um produto à lista
     private static void adicionarProduto(ArrayList<Produto> produtos, Scanner scanner) {
         // Lê o tipo do produto
-        System.out.println("Digite o tipo do produto:");
+        System.out.println("Digite o tipo do produto: \n 1 - Blusa \n 2- Calçado");
         String tipo = scanner.nextLine();
 
         // Lê a quantidade do produto
@@ -98,13 +98,9 @@ public class Main {
         System.out.println("Estoque");
         System.out.println("----------------------------------------");
 
-        // Exibe cada produto do estoque
         for (Produto produto : produtos) {
             System.out.println("Tipo: " + produto.getTipo());
             System.out.println("Quantidade: " + produto.getQuantidadeEstoque());
         }
-
-        // Exibe o rodapé
-        System.out.println("----------------------------------------");
     }
 }
