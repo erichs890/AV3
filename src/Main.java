@@ -1,14 +1,15 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        // Cria uma lista de produtos
-        ArrayList<Produto> produtos = new ArrayList<>();
+        // Cria variáveis para representar os produtos
+        Produto[] produtos = new Produto[10]; // Pode ajustar o tamanho conforme necessário
 
         // Cria um scanner para ler entradas do usuário
         Scanner scanner = new Scanner(System.in);
+
+        int indice = 0; // Índice para controlar a posição dos produtos no array
 
         while (true) {
             // Exibe o menu
@@ -25,15 +26,15 @@ public class Main {
             switch (opcao) {
                 case 1:
                     // Adiciona um produto
-                    adicionarProduto(produtos, scanner);
+                    indice = adicionarProduto(produtos, indice, scanner);
                     break;
                 case 2:
                     // Remove um produto
-                    removerProduto(produtos, scanner);
+                    indice = removerProduto(produtos, indice, scanner);
                     break;
                 case 3:
                     // Exibe o estoque
-                    exibirEstoque(produtos);
+                    exibirEstoque(produtos, indice);
                     break;
                 case 4:
                     // Sai do programa
@@ -46,98 +47,98 @@ public class Main {
         }
     }
 
-    // Adiciona um produto à lista
-    // Adiciona um produto à lista
-    // Adiciona um produto à lista
-    // Adiciona um produto à lista
-    private static void adicionarProduto(ArrayList<Produto> produtos, Scanner scanner) {
+    private static int adicionarProduto(Produto[] produtos, int indice, Scanner scanner) {
         // Lê o tipo do produto
         System.out.println("Digite o tipo do produto (Blusa, Calçado):");
-        String tipo = scanner.nextLine();
+        String tipo = scanner.next();
 
         // Lê as demais informações do produto
         System.out.println("Digite a quantidade:");
         int quantidade = scanner.nextInt();
-        scanner.nextLine(); // Limpar o buffer
-
-        System.out.println("Digite o tamanho:");
-        String tamanho = scanner.nextLine();
 
         System.out.println("Digite a cor:");
-        String cor = scanner.nextLine();
+        String cor = scanner.next();
 
         // Verifica se o tipo do produto é "Calçado"
         if (tipo.equals("Calçado")) {
             // Lê o número
-            System.out.println("Digite o número:");
+            System.out.println("Digite o número do pé:");
             int numero = scanner.nextInt();
 
             // Limpar o buffer
             scanner.nextLine();
 
-            // Verifica se o calçado tem cadarço
-            System.out.println("O calçado tem cadarço? (S/N)");
-            String resposta = scanner.nextLine();
-            boolean temCadarco = resposta.equalsIgnoreCase("s");
+            // Pergunta se é chinelo
+            System.out.println("É chinelo? (S/N)");
+            String respostaChinelo = scanner.nextLine();
+            boolean eChinelo = respostaChinelo.equalsIgnoreCase("s");
 
-            // Cria um produto calçado
-            Calcado produto = new Calcado(tipo, quantidade, tamanho, cor, numero) {
-                @Override
-                public boolean estaValido() {
-                    return false;
-                }
-            };
-
-            // Adiciona o produto à lista
-            produtos.add(produto);
-
-            System.out.println("Produto adicionado com sucesso!");
+            // Cria um produto calçado (pode ser Chinelo se eChinelo for verdadeiro)
+            produtos[indice] = eChinelo ?
+                    new Chinelo(tipo, quantidade, cor, numero) :
+                    new Calcado(tipo, quantidade, cor, numero, true) { // Se não for chinelo, assume que tem cadarço
+                        @Override
+                        public boolean estaValido() {
+                            return false;
+                        }
+                    };
         } else {
+            // Se não for calçado, lê o tamanho
+            System.out.println("Digite o tamanho:");
+            String tamanho = scanner.next();
+
             // Cria um produto genérico
-            Produto produto = new Produto(tipo, quantidade) {
+            produtos[indice] = new Produto(tipo, quantidade) {
                 @Override
-                public boolean verificarEstoque() throws EstoqueInsuficienteException {
+                public boolean verificarEstoque() {
                     return false;
                 }
 
                 @Override
-                public double calcularFrete() throws FreteIndisponivelException {
+                public double calcularFrete() {
                     return 0;
                 }
 
                 @Override
-                public void aplicarPromocao() throws PromocaoInexistenteException {
+                public void aplicarPromocao() {
 
                 }
             };
+        }
 
-            // Adiciona o produto à lista
-            produtos.add(produto);
+        System.out.println("Produto adicionado com sucesso!");
+        return indice + 1; // Atualiza o índice para a próxima posição
+    }
 
-            System.out.println("Produto adicionado com sucesso!");
+
+    private static int removerProduto(Produto[] produtos, int indice, Scanner scanner) {
+        // Exibe o estoque atual
+        exibirEstoque(produtos, indice);
+
+        // Lê a posição do produto a ser removido
+        System.out.println("Digite a posição do produto a ser removido:");
+        int posicao = scanner.nextInt();
+
+        if (posicao >= 0 && posicao < indice) {
+            // Remove o produto da posição especificada
+            System.arraycopy(produtos, posicao + 1, produtos, posicao, indice - posicao - 1);
+            System.out.println("Produto removido com sucesso!");
+            return indice - 1; // Atualiza o índice para a posição anterior
+        } else {
+            System.out.println("Posição inválida!");
+            return indice;
         }
     }
 
-    private static void removerProduto(ArrayList<Produto> produtos, Scanner scanner) {
-        // Lê o índice do produto a ser removido
-        System.out.println("Digite o índice do produto a ser removido:");
-        int indice = scanner.nextInt();
-
-        // Remove o produto da lista
-        produtos.remove(indice);
-
-        System.out.println("Produto removido com sucesso!");
-    }
-
-    // Exibe o estoque
-    private static void exibirEstoque(ArrayList<Produto> produtos) {
+    private static void exibirEstoque(Produto[] produtos, int indice) {
         // Exibe o cabeçalho
         System.out.println("Estoque");
         System.out.println("----------------------------------------");
 
-        for (Produto produto : produtos) {
-            System.out.println("Tipo: " + produto.getTipo());
-            System.out.println("Quantidade: " + produto.getQuantidadeEstoque());
+        for (int i = 0; i < indice; i++) {
+            System.out.println("Posição: " + i);
+            System.out.println("Tipo: " + produtos[i].getTipo());
+            System.out.println("Quantidade: " + produtos[i].getQuantidadeEstoque());
         }
     }
 }

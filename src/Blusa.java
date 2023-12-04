@@ -1,6 +1,6 @@
 public class Blusa extends PecaVestuario{
     public Blusa(String tipo, int quantiadeEstoque,String tamanho, String cor){
-        super(tipo,quantiadeEstoque,tamanho,cor);
+        super(tipo,quantiadeEstoque,tamanho);
     }
 
     @Override

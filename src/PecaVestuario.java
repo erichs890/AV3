@@ -1,6 +1,6 @@
 public abstract class PecaVestuario extends Produto implements Entrega, Perecivel {
-     private String tamanho; // pp p m g gg
-     private String cor;
+     protected String tamanho; // pp p m g gg
+     protected String cor;
 
      public String getTamanho() {
           return tamanho;
@@ -18,7 +18,7 @@ public abstract class PecaVestuario extends Produto implements Entrega, Perecive
           this.cor = cor;
      }
 
-     public PecaVestuario(String tipo, int quantidadeEstoque, String tamanho, String cor) {
+     public PecaVestuario(String tipo, int quantidadeEstoque, String tamanho) {
           super(tipo, quantidadeEstoque);
           this.tamanho = tamanho;
           this.cor = cor;

@@ -1,6 +1,6 @@
 public abstract class Produto extends Object{
-    private String tipo;
-    private int quantidadeEstoque;
+    protected String tipo;
+    protected int quantidadeEstoque;
 
     public String getTipo() {
         return tipo;

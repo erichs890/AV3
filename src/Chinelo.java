@@ -1,8 +1,8 @@
 public class Chinelo extends Calcado{
 
-    public Chinelo(String tipo, int quantidadeEstoque, String tamanho, String cor,int numero, boolean cadarco) {
-        super(tipo, quantidadeEstoque,tamanho, cor,numero);
-        cadarco = false;
+    public Chinelo(String tipo, int quantidadeEstoque, String cor,int numero) {
+        super(tipo, quantidadeEstoque,cor,numero, true);
+        super.cadarco = false;
     }
 
     @Override

@@ -1,6 +1,6 @@
 public abstract class Calcado extends PecaVestuario {
-    private int numero;
-    private boolean cadarco;
+    protected int numero;
+    protected boolean cadarco;
 
     public int getNumero() {
         return numero;
@@ -18,8 +18,8 @@ public abstract class Calcado extends PecaVestuario {
         this.cadarco = cadarco;
     }
 
-    public Calcado(String tipo, int quantidadeEstoque,String tamanho, String cor,int numero) {
-        super(tipo, quantidadeEstoque, tamanho, cor);
+    public Calcado(String tipo, int quantidadeEstoque, String cor, int numero, boolean b) {
+        super(tipo, quantidadeEstoque, cor);
         this.numero = numero;
         this.cadarco = cadarco;
     }
