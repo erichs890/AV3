@@ -9,11 +9,10 @@ programa); (1,0 ponto)
 #● Herança em pelo menos 5 classes; (1,0 ponto)
 ● Polimorfismo de sobreposição em pelo menos 3 classes; (0,5 ponto)
 ● Polimorfismo de sobrecarga em pelo menos 3 classes; (0,5 ponto)
-● Método toString implementado em todos os objetos; (0,5 ponto)
-● Uso de encapsulamento; (0,5 ponto)
+#● Método toString implementado em todos os objetos; (0,5 ponto)
+#● Uso de encapsulamento; (0,5 ponto)
 ● Uso de Collections (Uma List e uma Set ou Map) em pelo menos duas classes.
 (0,5 ponto)
 ● Utilização de Arquivos: leitura e escrita (1,0 ponto).
 ● Modelagem do diagrama de classe do sistema no padrão UML (1,0 ponto)
 ● BÔNUS: Interface gráfica da solução (1,0 ponto)
-EM TEORIA EU JA TENHO: 5,0
