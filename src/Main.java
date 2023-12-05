@@ -61,6 +61,11 @@ public class Main {
 
         // Verifica se o tipo do produto é "Calçado"
         if (tipo.equals("Calçado")) {
+            // Pergunta se é chinelo
+            System.out.println("É chinelo? (S/N)");
+            String respostaChinelo = scanner.next();
+            boolean eChinelo = respostaChinelo.equalsIgnoreCase("s");
+
             // Lê o número
             System.out.println("Digite o número do pé:");
             int numero = scanner.nextInt();
@@ -68,12 +73,7 @@ public class Main {
             // Limpar o buffer
             scanner.nextLine();
 
-            // Pergunta se é chinelo
-            System.out.println("É chinelo? (S/N)");
-            String respostaChinelo = scanner.nextLine();
-            boolean eChinelo = respostaChinelo.equalsIgnoreCase("s");
-
-            // Cria um produto calçado (pode ser Chinelo se eChinelo for verdadeiro)
+            // Cria um produto calçado (pode ser Chinelo)
             produtos[indice] = eChinelo ?
                     new Chinelo(tipo, quantidade, cor, numero) :
                     new Calcado(tipo, quantidade, cor, numero, true) { // Se não for chinelo, assume que tem cadarço
@@ -109,6 +109,7 @@ public class Main {
         System.out.println("Produto adicionado com sucesso!");
         return indice + 1; // Atualiza o índice para a próxima posição
     }
+
 
 
     private static int removerProduto(Produto[] produtos, int indice, Scanner scanner) {
